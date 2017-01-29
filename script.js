@@ -37,8 +37,6 @@ gridSquares[0].addEventListener('click',function(){
             player=0;
         }
         checkForWinner();
-            
-        
     }
 });
 
