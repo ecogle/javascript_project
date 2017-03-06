@@ -1,10 +1,19 @@
-var gridSquares,player;
+var gridSquares,player, winner;
 buildGridArray();
-player=0;
-winner=0;
 // 1. code to toggle players(start with 'X')
-
-
+//setEventListeners();
+document.getElementById("btnPlay").addEventListener('click',function(){
+    init();
+});
+function init(){
+    
+    player=0;
+    winner=0;
+    // clear boxes
+    for(var i=0;i<gridSquares.length;i++){
+        gridSquares[i].innerHTML="";
+    }
+}
 
 // 2. code to fill squares with 'X' or 'O'
 function checkIfContents(e){
@@ -19,6 +28,33 @@ function buildGridArray(){
     gridSquares = document.querySelector('.big-square').children;
 }
 
+//setting the event listeners with a function
+/*
+function setEventListeners(){
+    for(var t=0;t<gridSquares.length;t++){
+        gridSquares[t].addEventListener('click',function(){
+    if (!checkIfContents(gridSquares[t])&& winner===0){
+        
+        if(player===0){
+            gridSquares[t].innerHTML="X";
+            gridSquares[t].style.color='red';
+            gridSquares[t].classList.remove('grid');
+            gridSquares[t].classList.add('grid-full');
+            player=1;
+        }else{
+            gridSquares[t].innerHTML="O";
+            gridSquares[t].style.color='yellow';
+            gridSquares[t].classList.remove('grid');
+            gridSquares[t].classList.add('grid-full');
+            player=0;
+        }
+        checkForWinner();
+    }
+});
+    }
+}
+*/
+
 //each square gets eventListener for click
 gridSquares[0].addEventListener('click',function(){
     if (!checkIfContents(gridSquares[0])&& winner===0){
@@ -31,7 +67,7 @@ gridSquares[0].addEventListener('click',function(){
             player=1;
         }else{
             gridSquares[0].innerHTML="O";
-            gridSquares[0].style.color='blue';
+            gridSquares[0].style.color='yellow';
             gridSquares[0].classList.remove('grid');
             gridSquares[0].classList.add('grid-full');
             player=0;
@@ -190,8 +226,8 @@ gridSquares[8].addEventListener('click',function(){
     }
 });
     
-    
 
+ //end of event listeners
 // 3. logic to determine winner.
     // if row is equal -> winner
     // if col is equal -> winner
@@ -298,10 +334,10 @@ function checkLtoRDiagonal(){
         return true;
     }
 }
-/*
+
 document.querySelector('#button').addEventListener('click',function(){
     document.getElementById('tl').innerHTML='X';
     gridSquares[0].classList.remove('grid');
     gridSquares[0].classList.add('grid-full');
 });
-*/
+
