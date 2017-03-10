@@ -3,6 +3,7 @@ var UIController = (function(){
     // get game board
     var board = document.querySelector('.big-square').children;
     var newGame = document.querySelector(".ion-ios-play");
+    
     var winner = false;
     return{
         //public method to return the board as an array
@@ -44,11 +45,7 @@ var UIController = (function(){
     
 })();
 
-
-
-
-var GameController = (function(UICntrl){
-    
+var GameController = (function(UICntrl){    
     
     var player;
     
@@ -63,6 +60,10 @@ var GameController = (function(UICntrl){
         //event listener for the new game button
             //may have to put outside of everthing
         newBtn.addEventListener('click',newGameClick.bind(this,board));
+        
+        newBtn.addEventListener('click',function(){
+            location.reload();
+        });
     }
     
     var squareClick = function(brd){
@@ -93,8 +94,7 @@ var GameController = (function(UICntrl){
         }
         else{
             console.log("WINNER");
-        }
-        
+        }        
     }
     
     var isWinner= function(){
@@ -113,8 +113,7 @@ var GameController = (function(UICntrl){
         }
         else{
             return false;
-        }
-        
+        }        
     }
     
     var newGameClick = function(brd){
@@ -179,12 +178,7 @@ var GameController = (function(UICntrl){
                 return false;
             }
         }
-        
-        
     }
-    
-    
-    
     
     return{
         init: function(){
@@ -192,11 +186,13 @@ var GameController = (function(UICntrl){
             winner = 0;
             setUpEventListeners();
         }
-    }
-    
+    }    
     
 })(UIController);
 
+function init(){
+    
+}
 
 GameController.init();
 
