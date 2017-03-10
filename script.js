@@ -72,6 +72,13 @@ var GameController = (function(UICntrl){
     
     var squareClick = function(brd){
         
+        //TODO:
+        /*
+            move this function to the UIController
+            
+            pass in the player variable and move the method
+        */
+        
         if(isEmpty(brd) && UICntrl.getWinner() === false){
             if(player === 0){
                 brd.innerHTML="X";
@@ -122,12 +129,20 @@ var GameController = (function(UICntrl){
     
     var newGameClick = function(brd){
         console.log("new clicked");
+        //TODO:
+        
+        /*
+            move this to the UIController
+        */
         for(var t = 0; t< brd.length; t++){
             brd[t].innerHTML = "";
         }
         player=0;
     }
     
+    /*
+        will get moved to the UIController
+    */
     var isEmpty = function(square){
         if(square.innerHTML === "X" || square.innerHTML === "O"){
             return false;
@@ -169,6 +184,11 @@ var GameController = (function(UICntrl){
         }
         
         if(!missingVal){
+            
+            //TODO
+            /*
+                move this to the UIController by passing the array element into the UIController
+            */
             if(
                 (rowArray[0].innerHTML==="X"&&rowArray[1].innerHTML === "X" && rowArray[2].innerHTML ==="X") ||
                 (rowArray[0].innerHTML==="O"&&rowArray[1].innerHTML === "O" && rowArray[2].innerHTML ==="O")
