@@ -61,8 +61,8 @@ button{
     background-color: #ffffcc;
     color:#0099ff;
     font-size: 12pt;
-    margin-top: 20px;
-    left: 5%;
+    margin-top: 25px;
+    left: 15%;
     background: none;
     border: none;
     
@@ -77,7 +77,7 @@ button:focus {
 
 .big-square-wrapper {
     position: absolute;
-    left: 30%;
+    left: 20%;
     z-index: 0;
     background-color: white;
     width: 411px;
